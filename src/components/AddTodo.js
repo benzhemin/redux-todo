@@ -13,15 +13,14 @@ class AddTodo extends React.Component {
 
 	handleInputChange(e) {
 		const { value } = e.target;
-		this.setState({
-			todoVal: value,
-		});
+		this.setState({ todoVal: value });
 	}
 
 	handleAddTodo() {
 		const { todoVal } = this.state;
 
 		this.props.addTodo(todoVal);
+		this.setState({ todoVal: '' });
 	}
 
 	render() {

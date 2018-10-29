@@ -1,12 +1,15 @@
-import React from "react";
-import { connect } from "react-redux";
-
+import React from 'react';
+import { connect } from 'react-redux';
+import { toggleTodo } from '../redux/actions'
 
 const Todo = ({ todo, toggleTodo }) => {
+	debugger;
 	return (
-		<li>
+		<li onClick={() => toggleTodo(todo.id)}>
+			{(todo && todo.completed) ? "👌" : "👋"}
+			<span>{todo.content}</span>
 		</li>
 	)
 }
 
-export default Todo;
+export default connect(null, { toggleTodo })(Todo);
