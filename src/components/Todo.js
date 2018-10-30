@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { toggleTodo } from '../redux/actions'
 
 const Todo = ({ todo, toggleTodo }) => {
-	debugger;
 	return (
 		<li onClick={() => toggleTodo(todo.id)}>
 			{(todo && todo.completed) ? "👌" : "👋"}

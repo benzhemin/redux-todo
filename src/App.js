@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AddTodo from './components/AddTodo';
 import TodoList from './components/TodoList';
 import FilterTodo from './components/FilterTodo';
+import './styles.css'
 
 class App extends Component {
   render() {

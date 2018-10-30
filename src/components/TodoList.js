@@ -6,7 +6,7 @@ import { VISIBILITY_FILTERS } from "../constants";
 const TodoList = ({ todos }) => {
 	return (
 		<ul>
-			{ todos && todos.length ?  
+			{ todos && todos.length ? 
 				todos.map((todo) => {
 					return <Todo key={todo.id} todo={todo} />
 				}) : null}

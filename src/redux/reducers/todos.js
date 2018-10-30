@@ -7,21 +7,20 @@ const initialState = {
 }
 
 export default function(state = initialState, action) {
+	const { payload: { id } = {} } = action;
+
 	switch (action.type) {
 		case ADD_TODO : {
-			const { id, content } = action.payload;
-
+			const { content } = action.payload;
 			return update(state, {
 				allIds: { $push: [id] },
 				byIds: { [id]: { $set: { content, completed: false } } }
 			});
 		}
 		case TOGGLE_TODO: {
-			const { id } = action.payload;
 			const { completed } = state.byIds[id];
-
 			return update(state, {
-				byIds: { id: { $set: { completed: !completed } } }
+				byIds: { [id]: { $merge: { completed: !completed } } }
 			});
 		}
 		default:
